@@ -1,0 +1,17 @@
+{
+  "name": "automation-push-earthquek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "dotenv": "^16.0.3",
+    "lodash": "^4.17.21",
+    "node-cron": "^3.0.2"
+  }
+}

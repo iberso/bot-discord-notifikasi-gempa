@@ -5,6 +5,7 @@ const _ = require('lodash');
 
 let currentData;
 
+console.log("WAKE UP");
 Cron.schedule("* * * * *", async() => {
     await getCurrentGempaData();
 });

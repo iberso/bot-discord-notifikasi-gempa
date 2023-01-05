@@ -7,6 +7,7 @@ let currentData;
 
 console.log("WAKE UP");
 Cron.schedule("* * * * *", async() => {
+    console.log("JALAN TIAP 1 MENIT")
     await getCurrentGempaData();
 });
 

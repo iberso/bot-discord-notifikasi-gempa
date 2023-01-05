@@ -6,10 +6,12 @@ const _ = require('lodash');
 let currentData;
 
 console.log("WAKE UP");
-Cron.schedule("* * * * *", async() => {
+const worker = Cron.schedule("* * * * *", async() => {
     console.log("JALAN TIAP 1 MENIT")
     await getCurrentGempaData();
 });
+
+worker.start();
 
 async function getCurrentGempaData() {
     axios.get('https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json')

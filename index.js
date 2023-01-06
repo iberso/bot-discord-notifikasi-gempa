@@ -2,12 +2,20 @@ const axios = require('axios');
 require('dotenv').config();
 const Cron = require('node-cron');
 const _ = require('lodash');
+const express = require('express')
+const app = express();
+const port = 3000;
 
 let currentData;
 
-console.log("WAKE UP");
+app.get('/', (req, res) => {
+    res.send('WE ARE RUNNING')
+});
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+});
+
 const worker = Cron.schedule("* * * * *", async() => {
-    console.log("JALAN TIAP 1 MENIT")
     await getCurrentGempaData();
 });
 

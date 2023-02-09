@@ -17,6 +17,7 @@ app.listen(port, () => {
 });
 
 const worker = Cron.schedule("* * * * *", async() => {
+    console.log("WE ARE RUNNING....")
     await getCurrentGempaData();
 });
 

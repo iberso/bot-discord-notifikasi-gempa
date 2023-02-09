@@ -11,6 +11,7 @@ let currentData;
 app.get('/', (req, res) => {
     res.send('WE ARE RUNNING')
 });
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
@@ -91,12 +92,18 @@ async function getCurrentGempaData() {
         })
 }
 
+async function sendDiscordNotifMessage(msg) {
+    await axios.post(process.env['DC_NOTIF_WH_LINK'], mgs.toString())
+        .then(function(response) {
+            console.log("sukses ngirim notifikasi");
+        })
+}
 async function sendDiscordMessage(bodySend) {
     await axios.post(process.env['DISCORD_WEBHOOK_LINK'], bodySend)
         .then(function(response) {
             console.log("sukses ngirim informasi gempa data baru");
         })
         .catch(function(error) {
-            console.log(error);
+            sendDiscordMessage(error);
         });
 }

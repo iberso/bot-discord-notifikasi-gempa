@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
     res.send('WE ARE RUNNING')
 });
 
+app.get('/data', (req, res) => {
+    res.send(currentData)
+});
+
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
